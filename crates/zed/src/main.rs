@@ -432,7 +432,13 @@ fn main() {
         if let Some(app_commit_sha) = app_commit_sha {
             AppCommitSha::set_global(app_commit_sha, cx);
         }
+        
+        // 初始化 settings
         settings::init(cx);
+        
+        // 初始化 i18n 国际化系统
+        i18n::init(cx);
+        
         zlog_settings::init(cx);
         handle_settings_file_changes(
             user_settings_file_rx,
@@ -654,6 +660,7 @@ fn main() {
         outline::init(cx);
         project_symbols::init(cx);
         project_panel::init(cx);
+        custom_panel::init(cx);
         outline_panel::init(cx);
         tasks_ui::init(cx);
         snippets_ui::init(cx);

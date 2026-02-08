@@ -43,6 +43,8 @@ members = [
     "crates/context_server",
     "crates/copilot",
     "crates/copilot_chat",
+    "crates/custom_panel",
+    "crates/i18n",
     "crates/crashes",
     "crates/credentials_provider",
     "crates/dap",
@@ -289,6 +291,8 @@ context_server = { path = "crates/context_server" }
 copilot = { path = "crates/copilot" }
 copilot_chat = { path = "crates/copilot_chat" }
 copilot_ui = { path = "crates/copilot_ui" }
+custom_panel = { path = "crates/custom_panel" }
+i18n = { path = "crates/i18n" }
 crashes = { path = "crates/crashes" }
 credentials_provider = { path = "crates/credentials_provider" }
 crossbeam = "0.8.4"

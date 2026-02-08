@@ -4460,6 +4460,17 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f27ae1dd37df86211c42e150270f82743308803d90a6f6e6651cd730d5e1732f"
 
 [[package]]
+name = "custom_panel"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "gpui",
+ "i18n",
+ "ui",
+ "workspace",
+]
+
+[[package]]
 name = "cxx"
 version = "1.0.187"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -8158,6 +8169,17 @@ dependencies = [
  "tokio",
  "tower-service",
  "tracing",
+]
+
+[[package]]
+name = "i18n"
+version = "0.1.0"
+dependencies = [
+ "gpui",
+ "once_cell",
+ "serde",
+ "serde_json",
+ "settings",
 ]
 
 [[package]]
@@ -21015,6 +21037,7 @@ dependencies = [
  "copilot_chat",
  "copilot_ui",
  "crashes",
+ "custom_panel",
  "dap",
  "dap_adapters",
  "db",
@@ -21044,6 +21067,7 @@ dependencies = [
  "gpui",
  "gpui_tokio",
  "http_client",
+ "i18n",
  "image",
  "image_viewer",
  "inspector_ui",
