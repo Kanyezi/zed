@@ -31,6 +31,8 @@ use ui_input::InputField;
 use util::{ResultExt, debug_panic, rel_path::RelPath, shell::ShellKind};
 use workspace::{ModalView, Workspace, notifications::DetachAndPromptErr, pane};
 
+use i18n::t;
+
 use crate::{
     attach_modal::{AttachModal, ModalIntent},
     debugger_panel::DebugPanel,
@@ -829,14 +831,14 @@ impl ConfigureMode {
     pub(super) fn new(window: &mut Window, cx: &mut App) -> Entity<Self> {
         let program = cx.new(|cx| {
             InputField::new(window, cx, "ENV=Zed ~/bin/program --option")
-                .label("Program")
+                .label(t("form.program"))
                 .tab_stop(true)
                 .tab_index(1)
         });
 
         let cwd = cx.new(|cx| {
             InputField::new(window, cx, "Ex: $ZED_WORKTREE_ROOT")
-                .label("Working Directory")
+                .label(t("form.working_directory"))
                 .tab_stop(true)
                 .tab_index(2)
         });
@@ -941,7 +943,7 @@ impl ConfigureMode {
             .child(
                 Switch::new("debugger-stop-on-entry", self.stop_on_entry)
                     .tab_index(3_isize)
-                    .label("Stop on Entry")
+                    .label(t("form.stop_on_entry"))
                     .label_position(SwitchLabelPosition::Start)
                     .label_size(LabelSize::Default)
                     .on_click({

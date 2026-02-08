@@ -47,6 +47,8 @@ use ui::{ButtonLink, ConfiguredApiCard, Divider, List, ListBulletItem, prelude::
 use ui_input::InputField;
 use util::ResultExt;
 
+use i18n::t;
+
 use crate::AllLanguageModelSettings;
 
 actions!(bedrock, [Tab, TabPrev]);
@@ -1170,28 +1172,28 @@ impl ConfigurationView {
 
         let access_key_id_editor = cx.new(|cx| {
             InputField::new(window, cx, Self::PLACEHOLDER_ACCESS_KEY_ID_TEXT)
-                .label("Access Key ID")
+                .label(t("form.access_key_id"))
                 .tab_index(0)
                 .tab_stop(true)
         });
 
         let secret_access_key_editor = cx.new(|cx| {
             InputField::new(window, cx, Self::PLACEHOLDER_SECRET_ACCESS_KEY_TEXT)
-                .label("Secret Access Key")
+                .label(t("form.secret_access_key"))
                 .tab_index(1)
                 .tab_stop(true)
         });
 
         let session_token_editor = cx.new(|cx| {
             InputField::new(window, cx, Self::PLACEHOLDER_SESSION_TOKEN_TEXT)
-                .label("Session Token (Optional)")
+                .label(t("form.session_token_optional"))
                 .tab_index(2)
                 .tab_stop(true)
         });
 
         let bearer_token_editor = cx.new(|cx| {
             InputField::new(window, cx, Self::PLACEHOLDER_BEARER_TOKEN_TEXT)
-                .label("Bedrock API Key")
+                .label(t("form.bedrock_api_key"))
                 .tab_index(3)
                 .tab_stop(true)
         });

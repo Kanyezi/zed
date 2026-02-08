@@ -8,6 +8,8 @@ use gpui::Stateful;
 use smallvec::{SmallVec, smallvec};
 use theme::ActiveTheme;
 
+use i18n::t;
+
 type ActionHandler = Box<dyn FnOnce(Stateful<Div>) -> Stateful<Div>>;
 
 #[derive(IntoElement, RegisterComponent)]
@@ -233,7 +235,7 @@ Review .zed/settings.json for any extensions or commands configured by this proj
                                     .justify_between()
                                     .child(
                                         Checkbox::new("trust-parent", ToggleState::Unselected)
-                                            .label("Trust all projects in parent directory")
+                                            .label(t("settings.trust_all_projects"))
                                     )
                                     .child(
                                         h_flex()

@@ -14,6 +14,8 @@ use ui::{Avatar, Checkbox, ContextMenu, ListItem, ListItemSpacing, prelude::*};
 use util::TryFutureExt;
 use workspace::{ModalView, notifications::DetachAndPromptErr};
 
+use i18n::t;
+
 actions!(
     channel_modal,
     [
@@ -174,7 +176,7 @@ impl Render for ChannelModal {
                                         ui::ToggleState::Unselected
                                     },
                                 )
-                                .label("Public")
+                                .label(t("settings.public"))
                                 .on_click(cx.listener(Self::set_channel_visibility)),
                             )
                             .children(

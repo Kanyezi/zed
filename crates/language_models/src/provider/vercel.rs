@@ -19,6 +19,8 @@ use ui_input::InputField;
 use util::ResultExt;
 use vercel::{Model, VERCEL_API_URL};
 
+use i18n::t;
+
 const PROVIDER_ID: LanguageModelProviderId = LanguageModelProviderId::new("vercel");
 const PROVIDER_NAME: LanguageModelProviderName = LanguageModelProviderName::new("Vercel");
 
@@ -366,7 +368,7 @@ impl ConfigurationView {
                 cx,
                 "v1:0000000000000000000000000000000000000000000000000",
             )
-            .label("API key")
+            .label(t("form.api_key"))
         });
 
         cx.observe(&state, |_, _, cx| {

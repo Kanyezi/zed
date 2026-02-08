@@ -20,6 +20,8 @@ use ui_input::InputField;
 use util::ResultExt;
 use x_ai::{Model, XAI_API_URL};
 
+use i18n::t;
+
 const PROVIDER_ID: LanguageModelProviderId = LanguageModelProviderId::new("x_ai");
 const PROVIDER_NAME: LanguageModelProviderName = LanguageModelProviderName::new("xAI");
 
@@ -369,7 +371,7 @@ impl ConfigurationView {
                 cx,
                 "xai-0000000000000000000000000000000000000000000000000",
             )
-            .label("API key")
+            .label(t("form.api_key"))
         });
 
         cx.observe(&state, |_, _, cx| {

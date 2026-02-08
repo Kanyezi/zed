@@ -373,6 +373,7 @@ dependencies = [
  "gpui_tokio",
  "html_to_markdown",
  "http_client",
+ "i18n",
  "image",
  "indoc",
  "itertools 0.14.0",
@@ -9158,6 +9159,7 @@ dependencies = [
  "gpui",
  "gpui_tokio",
  "http_client",
+ "i18n",
  "language",
  "language_model",
  "lmstudio",
@@ -10265,6 +10267,7 @@ name = "miniprofiler_ui"
 version = "0.1.0"
 dependencies = [
  "gpui",
+ "i18n",
  "serde_json",
  "smol",
  "util",
@@ -18165,6 +18168,7 @@ dependencies = [
  "documented",
  "gpui",
  "gpui_macros",
+ "i18n",
  "icons",
  "itertools 0.14.0",
  "menu",

@@ -28,6 +28,8 @@ use ui::{
 };
 use ui_input::InputField;
 
+use i18n::t;
+
 use crate::AllLanguageModelSettings;
 
 const OLLAMA_DOWNLOAD_URL: &str = "https://ollama.com/download";
@@ -609,10 +611,10 @@ struct ConfigurationView {
 
 impl ConfigurationView {
     pub fn new(state: Entity<State>, window: &mut Window, cx: &mut Context<Self>) -> Self {
-        let api_key_editor = cx.new(|cx| InputField::new(window, cx, "63e02e...").label("API key"));
+        let api_key_editor = cx.new(|cx| InputField::new(window, cx, "63e02e...").label(t("form.api_key")));
 
         let api_url_editor = cx.new(|cx| {
-            let input = InputField::new(window, cx, OLLAMA_API_URL).label("API URL");
+            let input = InputField::new(window, cx, OLLAMA_API_URL).label(t("form.api_url"));
             input.set_text(&OllamaLanguageModelProvider::api_url(cx), window, cx);
             input
         });

@@ -1,6 +1,8 @@
 use gpui::AnyElement;
 use smallvec::SmallVec;
 
+use i18n::t;
+
 use crate::{ListHeader, prelude::*};
 
 use super::Checkbox;
@@ -67,11 +69,11 @@ impl Component for SettingsGroup {
                                 SettingsGroup::new("Appearance")
                                     .child(
                                         Checkbox::new("dark_mode", ToggleState::Unselected)
-                                            .label("Dark Mode"),
+                                            .label(t("settings.dark_mode")),
                                     )
                                     .child(
                                         Checkbox::new("high_contrast", ToggleState::Unselected)
-                                            .label("High Contrast"),
+                                            .label(t("settings.high_contrast")),
                                     )
                                     .into_any_element(),
                             ),
@@ -86,18 +88,18 @@ impl Component for SettingsGroup {
                                 .child(
                                     SettingsGroup::new("General").child(
                                         Checkbox::new("auto_update", ToggleState::Selected)
-                                            .label("Auto Update"),
+                                            .label(t("settings.auto_update")),
                                     ),
                                 )
                                 .child(
                                     SettingsGroup::new("Editor")
                                         .child(
                                             Checkbox::new("line_numbers", ToggleState::Selected)
-                                                .label("Show Line Numbers"),
+                                                .label(t("settings.show_line_numbers")),
                                         )
                                         .child(
                                             Checkbox::new("word_wrap", ToggleState::Unselected)
-                                                .label("Word Wrap"),
+                                                .label(t("settings.word_wrap")),
                                         ),
                                 )
                                 .into_any_element(),

@@ -12,6 +12,8 @@ use gpui::{
     WindowOptions, div, prelude::FluentBuilder, px, relative, size, uniform_list,
 };
 use util::ResultExt;
+use i18n::t;
+
 use workspace::{
     Workspace,
     ui::{
@@ -327,7 +329,7 @@ impl Render for ProfilerWindow {
                     )
                     .child(
                         Checkbox::new("include-self", self.include_self_timings)
-                            .label("Include profiler timings")
+                            .label(t("settings.include_profiler_timings"))
                             .on_click(cx.listener(|this, checked, _window, cx| {
                                 this.include_self_timings = *checked;
                                 cx.notify();

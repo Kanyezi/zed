@@ -16,6 +16,8 @@ use ui::{
 use ui_input::InputField;
 use workspace::{ModalView, Workspace};
 
+use i18n::t;
+
 fn single_line_input(
     label: impl Into<SharedString>,
     placeholder: &str,
@@ -385,7 +387,7 @@ impl AddLlmProviderModal {
                     .gap_1()
                     .child(
                         Checkbox::new(("supports-tools", ix), model.capabilities.supports_tools)
-                            .label("Supports tools")
+                            .label(t("settings.supports_tools"))
                             .on_click(cx.listener(move |this, checked, _window, cx| {
                                 this.input.models[ix].capabilities.supports_tools = *checked;
                                 cx.notify();
@@ -393,7 +395,7 @@ impl AddLlmProviderModal {
                     )
                     .child(
                         Checkbox::new(("supports-images", ix), model.capabilities.supports_images)
-                            .label("Supports images")
+                            .label(t("settings.supports_images"))
                             .on_click(cx.listener(move |this, checked, _window, cx| {
                                 this.input.models[ix].capabilities.supports_images = *checked;
                                 cx.notify();
@@ -404,7 +406,7 @@ impl AddLlmProviderModal {
                             ("supports-parallel-tool-calls", ix),
                             model.capabilities.supports_parallel_tool_calls,
                         )
-                        .label("Supports parallel_tool_calls")
+                        .label(t("settings.supports_parallel_tool_calls"))
                         .on_click(cx.listener(
                             move |this, checked, _window, cx| {
                                 this.input.models[ix]
@@ -419,7 +421,7 @@ impl AddLlmProviderModal {
                             ("supports-prompt-cache-key", ix),
                             model.capabilities.supports_prompt_cache_key,
                         )
-                        .label("Supports prompt_cache_key")
+                        .label(t("settings.supports_prompt_cache_key"))
                         .on_click(cx.listener(
                             move |this, checked, _window, cx| {
                                 this.input.models[ix].capabilities.supports_prompt_cache_key =
@@ -433,7 +435,7 @@ impl AddLlmProviderModal {
                             ("supports-chat-completions", ix),
                             model.capabilities.supports_chat_completions,
                         )
-                        .label("Supports /chat/completions")
+                        .label(t("settings.supports_chat_completions"))
                         .on_click(cx.listener(
                             move |this, checked, _window, cx| {
                                 this.input.models[ix].capabilities.supports_chat_completions =
