@@ -6825,10 +6825,10 @@ impl Panel for ProjectPanel {
     }
 
     fn icon_tooltip(&self, _window: &Window, _cx: &App) -> Option<&'static str> {
-        Some("Project Panel")
-    }
 
-    fn toggle_action(&self) -> Box<dyn Action> {
+        Some(i18n::t_static("panel.project_panel"))
+
+    }    fn toggle_action(&self) -> Box<dyn Action> {
         Box::new(ToggleFocus)
     }
 

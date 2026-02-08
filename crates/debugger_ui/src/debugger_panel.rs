@@ -21,7 +21,7 @@ use gpui::{
     EntityId, EventEmitter, FocusHandle, Focusable, MouseButton, MouseDownEvent, Point,
     Subscription, Task, WeakEntity, anchored, deferred,
 };
-
+use i18n;
 use itertools::Itertools as _;
 use language::Buffer;
 use project::debugger::session::{Session, SessionQuirks, SessionState, SessionStateEvent};
@@ -1582,12 +1582,12 @@ impl Panel for DebugPanel {
     }
 
     fn icon_tooltip(&self, _window: &Window, cx: &App) -> Option<&'static str> {
-        if DebuggerSettings::get_global(cx).button {
-            Some("Debug Panel")
-        } else {
-            None
-        }
+    if DebuggerSettings::get_global(cx).button {
+        Some(i18n::t_static("panel.debugger_panel"))
+    } else {
+        None
     }
+}
 
     fn toggle_action(&self) -> Box<dyn Action> {
         Box::new(ToggleFocus)

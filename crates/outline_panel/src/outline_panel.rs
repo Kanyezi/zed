@@ -4989,10 +4989,8 @@ impl Panel for OutlinePanel {
     }
 
     fn icon_tooltip(&self, _window: &Window, _: &App) -> Option<&'static str> {
-        Some("Outline Panel")
-    }
-
-    fn toggle_action(&self) -> Box<dyn Action> {
+        Some(i18n::t_static("panel.outline_panel"))
+    }    fn toggle_action(&self) -> Box<dyn Action> {
         Box::new(ToggleFocus)
     }
 

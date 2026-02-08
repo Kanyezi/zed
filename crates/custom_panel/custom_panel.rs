@@ -1,7 +1,7 @@
 use anyhow::Result;
 use gpui::{
     actions, div, prelude::*, App, AsyncWindowContext, Context, EventEmitter, Entity, Focusable,
-    FocusHandle, FontWeight, IntoElement, Render, WeakEntity, Window,
+    FocusHandle, IntoElement, Render, WeakEntity, Window,
 };
 use i18n::t;
 use ui::{prelude::*, IconName};
@@ -133,7 +133,7 @@ impl Panel for CustomPanel {
 
     // 返回图标的提示文本
     fn icon_tooltip(&self, _window: &Window, _cx: &App) -> Option<&'static str> {
-        Some("Custom Panel")
+        Some(i18n::t_static("panel.custom_panel"))
     }
 
     // 返回切换面板的动作
