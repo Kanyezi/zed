@@ -5,6 +5,8 @@ use ui::{Tooltip, prelude::*};
 use workspace::{ToastAction, ToastView};
 use zed_actions::toast;
 
+use i18n::t_static;
+
 #[derive(Clone, Copy)]
 pub struct ToastIcon {
     icon: IconName,
@@ -140,7 +142,7 @@ impl Render for StatusToast {
                         .shape(ui::IconButtonShape::Square)
                         .icon_size(IconSize::Small)
                         .icon_color(Color::Muted)
-                        .tooltip(Tooltip::text("Dismiss"))
+                        .tooltip(Tooltip::text(t_static("tooltip.dismiss")))
                         .on_click(move |_click_event, _window, cx| {
                             handle.update(cx, |_, cx| {
                                 cx.emit(DismissEvent);

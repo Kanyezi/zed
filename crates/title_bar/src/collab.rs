@@ -20,6 +20,8 @@ use ui::{
 use util::rel_path::RelPath;
 use workspace::notifications::DetachAndPromptErr;
 
+use i18n::t_static;
+
 use crate::TitleBar;
 
 pub fn toggle_screen_sharing(
@@ -359,7 +361,7 @@ impl TitleBar {
                 .child(
                     IconButton::new("leave-call", IconName::Exit)
                         .style(ButtonStyle::Subtle)
-                        .tooltip(Tooltip::text("Leave Call"))
+                        .tooltip(Tooltip::text(t_static("tooltip.leave_call")))
                         .icon_size(IconSize::Small)
                         .on_click(move |_, _window, cx| {
                             ActiveCall::global(cx)

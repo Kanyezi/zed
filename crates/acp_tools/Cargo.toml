@@ -17,6 +17,7 @@ doctest = false
 agent-client-protocol.workspace = true
 collections.workspace = true
 gpui.workspace = true
+i18n.workspace = true
 language.workspace= true
 markdown.workspace = true
 project.workspace = true

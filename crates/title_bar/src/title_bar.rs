@@ -41,6 +41,7 @@ use ui::{
     PopoverMenuHandle, TintColor, Tooltip, prelude::*,
 };
 use util::ResultExt;
+use i18n::t_static;
 use workspace::{SwitchProject, ToggleWorktreeSecurity, Workspace, notifications::NotifyResultExt};
 use zed_actions::OpenRemote;
 
@@ -875,7 +876,7 @@ impl TitleBar {
                 div()
                     .id("disconnected")
                     .child(Icon::new(IconName::Disconnected).size(IconSize::Small))
-                    .tooltip(Tooltip::text("Disconnected"))
+                    .tooltip(Tooltip::text(t_static("tooltip.disconnected")))
                     .into_any_element(),
             ),
             client::Status::UpgradeRequired => {
@@ -1016,13 +1017,13 @@ impl TitleBar {
                     this.trigger_with_tooltip(
                         ButtonLike::new("user-menu")
                             .children(user_avatar.clone().map(|avatar| Avatar::new(avatar))),
-                        Tooltip::text("Toggle User Menu"),
+                        Tooltip::text(t_static("tooltip.toggle_user_menu")),
                     )
                 } else {
                     this.trigger_with_tooltip(
                         IconButton::new("user-menu", IconName::ChevronDown)
                             .icon_size(IconSize::Small),
-                        Tooltip::text("Toggle User Menu"),
+                        Tooltip::text(t_static("tooltip.toggle_user_menu")),
                     )
                 }
             })

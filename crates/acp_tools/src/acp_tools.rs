@@ -19,6 +19,7 @@ use settings::Settings;
 use theme::ThemeSettings;
 use ui::{CopyButton, Tooltip, WithScrollbar, prelude::*};
 use util::ResultExt as _;
+use i18n::t_static;
 use workspace::{
     Item, ItemHandle, ToolbarItemEvent, ToolbarItemLocation, ToolbarItemView, Workspace,
 };
@@ -578,7 +579,7 @@ impl Render for AcpToolsToolbarItemView {
             .child(
                 IconButton::new("clear_messages", IconName::Trash)
                     .icon_size(IconSize::Small)
-                    .tooltip(Tooltip::text("Clear Messages"))
+                    .tooltip(Tooltip::text(i18n::t_static("tooltip.clear_messages")))
                     .disabled(!has_messages)
                     .on_click(cx.listener(move |_this, _, _window, cx| {
                         acp_tools.update(cx, |acp_tools, cx| {

@@ -13,6 +13,8 @@ use settings::WorktreeId;
 use ui::{ContextMenu, DocumentationAside, DocumentationSide, Tooltip, prelude::*};
 use workspace::{CloseIntent, Workspace};
 
+use i18n::t_static;
+
 actions!(project_dropdown, [RemoveSelectedFolder]);
 
 const RECENT_PROJECTS_INLINE_LIMIT: usize = 5;
@@ -187,7 +189,7 @@ impl ProjectDropdown {
                                                 cx,
                                             )
                                         } else {
-                                            Tooltip::text("Remove Folder")(window, cx)
+                                            Tooltip::text(t_static("tooltip.remove_folder"))(window, cx)
                                         }
                                     }
                                 })
@@ -348,7 +350,7 @@ impl ProjectDropdown {
                                 .visible_on_hover(name)
                                 .icon_size(IconSize::Small)
                                 .icon_color(Color::Muted)
-                                .tooltip(Tooltip::text("Remove from Recent Projects"))
+                                .tooltip(Tooltip::text(t_static("tooltip.remove_from_recent")))
                                 .on_click({
                                     move |_, window, cx| {
                                         let menu_shell = menu_shell.clone();

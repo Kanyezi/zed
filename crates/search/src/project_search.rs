@@ -44,6 +44,7 @@ use ui::{
     CommonAnimationExt, IconButtonShape, KeyBinding, Toggleable, Tooltip, prelude::*,
     utils::SearchInputWidth,
 };
+use i18n::t_static;
 use util::{ResultExt as _, paths::PathMatcher, rel_path::RelPath};
 use workspace::{
     DeploySearch, ItemNavHistory, NewSearch, ToolbarItemEvent, ToolbarItemLocation,
@@ -2273,7 +2274,7 @@ impl Render for ProjectSearchBar {
                     IconButton::new("project-search-opened-only", IconName::FolderSearch)
                         .shape(IconButtonShape::Square)
                         .toggle_state(self.is_opened_only_enabled(cx))
-                        .tooltip(Tooltip::text("Only Search Open Files"))
+                        .tooltip(Tooltip::text(i18n::t_static("tooltip.only_search_open_files")))
                         .on_click(cx.listener(|this, _, window, cx| {
                             this.toggle_opened_only(window, cx);
                         })),

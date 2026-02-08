@@ -637,7 +637,7 @@ impl DebugPanel {
                 .on_click(|_, window, cx| {
                     window.dispatch_action(zed_actions::OpenProjectDebugTasks.boxed_clone(), cx);
                 })
-                .tooltip(Tooltip::text("Edit debug.json"))
+                .tooltip(Tooltip::text(i18n::t_static("tooltip.configure_mcp_server")))
         };
 
         let documentation_button = || {
@@ -663,7 +663,7 @@ impl DebugPanel {
                     .on_click(move |_, window, cx| {
                         window.dispatch_action(workspace::ToggleBottomDock.boxed_clone(), cx)
                     })
-                    .tooltip(Tooltip::text("Close Panel")),
+                    .tooltip(Tooltip::text(i18n::t_static("tooltip.close_panel"))),
             )
         };
 

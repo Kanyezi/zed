@@ -4833,7 +4833,7 @@ impl OutlinePanel {
                         this.child(
                             IconButton::new("clear_filter", IconName::Close)
                                 .shape(IconButtonShape::Square)
-                                .tooltip(Tooltip::text("Clear Filter"))
+                                .tooltip(Tooltip::text(i18n::t_static("tooltip.clear_filter")))
                                 .on_click(cx.listener(|outline_panel, _, window, cx| {
                                     outline_panel.filter_editor.update(cx, |editor, cx| {
                                         editor.set_text("", window, cx);

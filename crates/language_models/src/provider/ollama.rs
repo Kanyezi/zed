@@ -884,7 +884,7 @@ impl Render for ConfigurationView {
                                     )
                                     .child(
                                         IconButton::new("refresh-models", IconName::RotateCcw)
-                                            .tooltip(Tooltip::text("Refresh Models"))
+                                            .tooltip(Tooltip::text(i18n::t_static("tooltip.refresh_models")))
                                             .on_click(cx.listener(|this, _, window, cx| {
                                                 this.state.update(cx, |state, _| {
                                                     state.fetched_models.clear();

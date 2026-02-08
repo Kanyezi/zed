@@ -40,6 +40,7 @@ use ui::{
 };
 
 use util::{ResultExt as _, paths::PathStyle, rel_path::RelPath};
+use i18n::t_static;
 use workspace::{AppState, OpenOptions, OpenVisible, Workspace, client_side_decorations};
 use zed_actions::{OpenProjectSettings, OpenSettings, OpenSettingsAt};
 
@@ -1164,7 +1165,7 @@ fn render_settings_item(
                                     IconButton::new("reset-to-default-btn", IconName::Undo)
                                         .icon_color(Color::Muted)
                                         .icon_size(IconSize::Small)
-                                        .tooltip(Tooltip::text("Reset to Default"))
+                                        .tooltip(Tooltip::text(i18n::t_static("tooltip.reset_to_default")))
                                         .on_click({
                                             move |_, window, cx| {
                                                 reset_to_default(window, cx);
@@ -1242,7 +1243,7 @@ fn render_settings_item_link(
                 .icon_color(link_icon_color)
                 .icon_size(IconSize::Small)
                 .shape(IconButtonShape::Square)
-                .tooltip(Tooltip::text("Copy Link"))
+                .tooltip(Tooltip::text(i18n::t_static("tooltip.copy_link")))
                 .when_some(json_path, |this, path| {
                     this.on_click(cx.listener(move |_, _, _, cx| {
                         let link = format!("zed://settings/{}", path);

@@ -28,6 +28,7 @@ use std::{
 };
 use text::{Anchor, BufferSnapshot, OffsetRangeExt};
 use ui::{Button, ButtonStyle, Icon, IconName, Label, Tooltip, h_flex, prelude::*};
+use i18n::t_static;
 use workspace::{
     ItemHandle, ItemNavHistory, Workspace,
     item::{Item, ItemEvent, TabContentParams},
@@ -902,7 +903,7 @@ impl Render for BufferDiagnosticsEditor {
                         .child(
                             Button::new("open-file", filename)
                                 .style(ButtonStyle::Transparent)
-                                .tooltip(Tooltip::text("Open File"))
+                                .tooltip(Tooltip::text(i18n::t_static("tooltip.open_file")))
                                 .on_click(cx.listener(|buffer_diagnostics, _, window, cx| {
                                     if let Some(workspace) = window.root::<Workspace>().flatten() {
                                         workspace.update(cx, |workspace, cx| {

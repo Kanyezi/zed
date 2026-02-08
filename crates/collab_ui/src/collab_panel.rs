@@ -981,7 +981,7 @@ impl CollabPanel {
                 IconButton::new("leave-call", IconName::Exit)
                     .style(ButtonStyle::Subtle)
                     .on_click(move |_, window, cx| Self::leave_call(window, cx))
-                    .tooltip(Tooltip::text("Leave Call"))
+                    .tooltip(Tooltip::text(i18n::t_static("tooltip.leave_call")))
                     .into_any_element()
             } else if role == proto::ChannelRole::Guest {
                 Label::new("Guest").color(Color::Muted).into_any_element()
@@ -1088,7 +1088,7 @@ impl CollabPanel {
                         })
                         .ok();
                 }))
-                .tooltip(Tooltip::text("Open shared screen"))
+                .tooltip(Tooltip::text(i18n::t_static("tooltip.open_shared_screen")))
             })
     }
 
@@ -1132,9 +1132,8 @@ impl CollabPanel {
                             .child(Indicator::dot().color(Color::Info))
                     })),
             )
-            .child(Label::new("notes"))
-            .tooltip(Tooltip::text("Open Channel Notes"))
-    }
+                        .child(Label::new("notes"))
+                    .tooltip(Tooltip::text(i18n::t_static("tooltip.open_channel_notes")))    }
 
     fn has_subchannels(&self, ix: usize) -> bool {
         self.entries.get(ix).is_some_and(|entry| {
@@ -2446,7 +2445,7 @@ impl CollabPanel {
                         this.pr_2p5().child(
                             IconButton::new("clear_filter", IconName::Close)
                                 .shape(IconButtonShape::Square)
-                                .tooltip(Tooltip::text("Clear Filter"))
+                                .tooltip(Tooltip::text(i18n::t_static("tooltip.clear_filter")))
                                 .on_click(cx.listener(|this, _, window, cx| {
                                     this.reset_filter_editor_text(window, cx);
                                     cx.notify();
@@ -2552,13 +2551,13 @@ impl CollabPanel {
                     .on_click(
                         cx.listener(|this, _, window, cx| this.toggle_contact_finder(window, cx)),
                     )
-                    .tooltip(Tooltip::text("Search for new contact"))
+                    .tooltip(Tooltip::text(i18n::t_static("tooltip.search_new_contact")))
                     .into_any_element(),
             ),
             Section::Channels => Some(
                 IconButton::new("add-channel", IconName::Plus)
                     .on_click(cx.listener(|this, _, window, cx| this.new_root_channel(window, cx)))
-                    .tooltip(Tooltip::text("Create a channel"))
+                    .tooltip(Tooltip::text(i18n::t_static("tooltip.create_channel")))
                     .into_any_element(),
             ),
             _ => None,
@@ -2691,13 +2690,13 @@ impl CollabPanel {
                         this.respond_to_contact_request(user_id, false, window, cx);
                     }))
                     .icon_color(color)
-                    .tooltip(Tooltip::text("Decline invite")),
+                    .tooltip(Tooltip::text(i18n::t_static("tooltip.decline_invite"))),
                 IconButton::new("accept-contact", IconName::Check)
                     .on_click(cx.listener(move |this, _, window, cx| {
                         this.respond_to_contact_request(user_id, true, window, cx);
                     }))
                     .icon_color(color)
-                    .tooltip(Tooltip::text("Accept invite")),
+                    .tooltip(Tooltip::text(i18n::t_static("tooltip.accept_invite"))),
             ]
         } else {
             let github_login = github_login.clone();
@@ -2707,7 +2706,7 @@ impl CollabPanel {
                         this.remove_contact(user_id, &github_login, window, cx);
                     }))
                     .icon_color(color)
-                    .tooltip(Tooltip::text("Cancel invite")),
+                    .tooltip(Tooltip::text(i18n::t_static("tooltip.cancel_invite"))),
             ]
         };
 
@@ -2957,7 +2956,7 @@ impl CollabPanel {
                                 .on_click(cx.listener(move |this, _, window, cx| {
                                     this.open_channel_notes(channel_id, window, cx)
                                 }))
-                                .tooltip(Tooltip::text("Open channel notes")),
+                                .tooltip(Tooltip::text(i18n::t_static("tooltip.open_channel_notes"))),
                         )
                         .visible_on_hover(""),
                 ),
